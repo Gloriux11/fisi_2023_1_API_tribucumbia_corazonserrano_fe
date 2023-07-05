@@ -1,5 +1,6 @@
 package com.corazonserrano.FinanzasAPI.model;
 
+
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -13,7 +14,8 @@ public class Presupuesto {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "idPresupuesto", updatable = false, nullable = false)
-    private Integer id;
+
+    private Integer idPresupuesto;
 
     @Column(name = "login")
     private Integer login;
