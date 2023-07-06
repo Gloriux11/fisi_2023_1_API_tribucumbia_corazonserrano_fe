@@ -10,7 +10,7 @@ import java.util.Optional;
 
 @Service
 public class PresupuestoService {
-
+/*
     @Autowired
     private PresupuestoRepository presupuestoRepository;
 
@@ -33,5 +33,5 @@ public class PresupuestoService {
         } else {
             throw new PresupuestoNotFoundException();
         }
-    }
+    }*/
 }

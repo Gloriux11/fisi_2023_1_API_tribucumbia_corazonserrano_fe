@@ -12,7 +12,13 @@ public class Operaciones {
     private Integer idOperacion;
     private String login;
     private String nombre;
-    
+    private Date fechaRegistro;
+    private char tipoie;
+    private String categoria;
+    private Float monto;
+    private Date fechaReal;
+    private Boolean futuro;
+
     public Integer getIdOperacion() {
         return idOperacion;
     }
@@ -85,11 +91,6 @@ public class Operaciones {
         this.futuro = futuro;
     }
 
-    private Date fechaRegistro;
-    private char tipoie;
-    private String categoria;
-    private Float monto;
-    private Date fechaReal;
-    private Boolean futuro;
+
 
 }

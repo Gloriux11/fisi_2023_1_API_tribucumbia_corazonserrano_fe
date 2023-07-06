@@ -10,7 +10,7 @@ import org.springframework.web.bind.annotation.*;
 @RestController
 @RequestMapping(value = "/presupuesto")
 public class PresupuestoController {
-
+/*
     @Autowired
     private PresupuestoService presupuestoService;
 
@@ -27,5 +27,5 @@ public class PresupuestoController {
     @PutMapping(value = "/update", produces = MediaType.APPLICATION_JSON_VALUE)
     public Presupuesto updatePresupuesto(@RequestParam Integer idPresupuesto, @RequestBody Presupuesto presupuesto) {
         return presupuestoService.updatePresupuesto(idPresupuesto, presupuesto);
-    }
+    }*/
 }
