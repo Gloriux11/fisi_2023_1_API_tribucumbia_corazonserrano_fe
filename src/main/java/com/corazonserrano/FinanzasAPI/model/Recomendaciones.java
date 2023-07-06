@@ -1,38 +1,44 @@
 package com.corazonserrano.FinanzasAPI.model;
 
 import jakarta.persistence.*;
-import lombok.Data;
-
 import java.util.Date;
 
 @Entity
 @Table(name = "recomendaciones")
-@Data
 public class Recomendaciones {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "numRecomendacion", updatable = false, nullable = false)
+    @Column(name = "id_presupuesto")
+    private Integer idPresupuesto;
 
+    @Id
+    @Column(name = "num_recomendacion")
     private Integer numRecomendacion;
-
-    @Column(name = "idPresupuesto")
-    private String idPresupuesto;
 
     @Column(name = "fecha")
     private Date fecha;
 
-    @Column(name = "recomendacionDescripcion")
+    @Column(name = "recomendacion_descripcion")
     private String recomendacionDescripcion;
 
-    public Recomendaciones(){
+    // Constructor, getters y setters
 
+    public Recomendaciones() {
     }
 
-    public Recomendaciones(String idPresupuesto, Date fecha, String recomendacionDescripcion){
+    public Recomendaciones(Integer idPresupuesto, Integer numRecomendacion, Date fecha, String recomendacionDescripcion) {
         this.idPresupuesto = idPresupuesto;
+        this.numRecomendacion = numRecomendacion;
         this.fecha = fecha;
         this.recomendacionDescripcion = recomendacionDescripcion;
+    }
+
+    public Integer getIdPresupuesto() {
+        return idPresupuesto;
+    }
+
+    public void setIdPresupuesto(Integer idPresupuesto) {
+        this.idPresupuesto = idPresupuesto;
     }
 
     public Integer getNumRecomendacion() {
@@ -41,14 +47,6 @@ public class Recomendaciones {
 
     public void setNumRecomendacion(Integer numRecomendacion) {
         this.numRecomendacion = numRecomendacion;
-    }
-
-    public String getIdPresupuesto() {
-        return idPresupuesto;
-    }
-
-    public void setIdPresupuesto(String idPresupuesto) {
-        this.idPresupuesto = idPresupuesto;
     }
 
     public Date getFecha() {
