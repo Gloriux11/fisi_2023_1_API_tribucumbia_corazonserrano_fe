@@ -24,4 +24,46 @@ public class Recomendaciones {
 
     @Column(name = "recomendacionDescripcion")
     private String recomendacionDescripcion;
+
+    public Recomendaciones(){
+
+    }
+
+    public Recomendaciones(String idPresupuesto, Date fecha, String recomendacionDescripcion){
+        this.idPresupuesto = idPresupuesto;
+        this.fecha = fecha;
+        this.recomendacionDescripcion = recomendacionDescripcion;
+    }
+
+    public Integer getNumRecomendacion() {
+        return numRecomendacion;
+    }
+
+    public void setNumRecomendacion(Integer numRecomendacion) {
+        this.numRecomendacion = numRecomendacion;
+    }
+
+    public String getIdPresupuesto() {
+        return idPresupuesto;
+    }
+
+    public void setIdPresupuesto(String idPresupuesto) {
+        this.idPresupuesto = idPresupuesto;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public String getRecomendacionDescripcion() {
+        return recomendacionDescripcion;
+    }
+
+    public void setRecomendacionDescripcion(String recomendacionDescripcion) {
+        this.recomendacionDescripcion = recomendacionDescripcion;
+    }
 }
