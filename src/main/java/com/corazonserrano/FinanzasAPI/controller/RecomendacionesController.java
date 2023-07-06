@@ -17,7 +17,7 @@ public class RecomendacionesController {
     Integer numRecomendacion;
 
     @GetMapping()
-    public ArrayList<Recomendaciones> obtenerRecomendaciones(){
+    public Recomendaciones obtenerRecomendaciones(){
         return recomendacionesService.obtenerRecomendacion(idPresupuesto, numRecomendacion);
     }
 
