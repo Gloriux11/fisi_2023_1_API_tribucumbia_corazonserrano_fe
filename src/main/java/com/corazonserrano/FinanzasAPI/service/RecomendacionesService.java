@@ -10,38 +10,17 @@ import java.util.ArrayList;
 @Service
 public class RecomendacionesService {
     private RecomendacionesRepository recomendacionesRepository;
-    private static final int MAX_NUM_RECOMENDACIONES = 4;
 
     @Autowired
     public RecomendacionesService(RecomendacionesRepository recomendacionesRepository) {
         this.recomendacionesRepository = recomendacionesRepository;
     }
 
-    public ArrayList<Recomendaciones> obtenerTodasLasRecomendaciones() {
-        return (ArrayList<Recomendaciones>) recomendacionesRepository.findAll();
-    }
-
-    public Recomendaciones obtenerUltimaRecomendacionPorPresupuesto(Integer idPresupuesto) {
-        Integer maxNumRecomendacion = recomendacionesRepository.findMaxNumRecomendacion(idPresupuesto);
-        if (maxNumRecomendacion == null) {
-            return null;
+    public String obtenerRecomendacionDescripcion(Integer idPresupuesto) {
+        Recomendaciones recomendacion = recomendacionesRepository.findFirstByidPresupuestoOrderByNumRecomendacionDesc(idPresupuesto);
+        if (recomendacion != null) {
+            return recomendacion.getRecomendacionDescripcion();
         }
-        return recomendacionesRepository.findByidPresupuestoAndnumRecomendacion(idPresupuesto, maxNumRecomendacion);
+        return null;
     }
-
-    public int getMaxNumRecomendacion(Integer idPresupuesto) {
-        Integer maxNumRecomendacion = recomendacionesRepository.findMaxNumRecomendacion(idPresupuesto);
-        if (maxNumRecomendacion == null) {
-            return 0;
-        } else if (maxNumRecomendacion >= MAX_NUM_RECOMENDACIONES) {
-            return MAX_NUM_RECOMENDACIONES;
-        } else {
-            return maxNumRecomendacion;
-        }
-    }
-
-   /* public Recomendaciones obtenerRecomendacion(Integer idPresupuesto, Integer numRecomendacion) {
-        Recomendaciones recomendacion = (Recomendaciones) recomendacionesRepository.findByidPresupuestoAndnumRecomendacion(idPresupuesto, numRecomendacion);
-        return recomendacion;
-    }*/
 }

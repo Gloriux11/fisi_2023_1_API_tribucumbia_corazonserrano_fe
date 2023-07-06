@@ -1,24 +1,25 @@
 package com.corazonserrano.FinanzasAPI.controller;
 
-
-import com.corazonserrano.FinanzasAPI.model.Recomendaciones;
 import com.corazonserrano.FinanzasAPI.service.RecomendacionesService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
 
 @RestController
-@RequestMapping("/recomendaciones")
 public class RecomendacionesController {
-    @Autowired
-    RecomendacionesService recomendacionesService;
-    Integer idPresupuesto;
-    Integer numRecomendacion;
+    private RecomendacionesService recomendacionesService;
 
-    @GetMapping()
-    public Recomendaciones obtenerRecomendaciones(){
-        return recomendacionesService.obtenerRecomendacion(idPresupuesto, numRecomendacion);
+    @Autowired
+    public RecomendacionesController(RecomendacionesService recomendacionesService) {
+        this.recomendacionesService = recomendacionesService;
+    }
+
+    @GetMapping("/obtener-recomendacion")
+    public String obtenerRecomendacion(@RequestParam("idPresupuesto") Integer idPresupuesto) {
+        return recomendacionesService.obtenerRecomendacionDescripcion(idPresupuesto);
     }
 
 }
