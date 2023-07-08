@@ -1,10 +1,16 @@
 package com.corazonserrano.FinanzasAPI.model;
 
-import javax.persistence.*;
+import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
+import jakarta.persistence.GenerationType;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+import lombok.Data;
 import java.util.Date;
 
 @Entity
 @Table(name = "operaciones")
+@Data
 public class Operaciones {
 
     @Id
@@ -13,7 +19,7 @@ public class Operaciones {
     private String login;
     private String nombre;
     private Date fechaRegistro;
-    private char tipoie;
+    private String tipoie;
     private String categoria;
     private Float monto;
     private Date fechaReal;
@@ -21,6 +27,19 @@ public class Operaciones {
 
     public Integer getIdOperacion() {
         return idOperacion;
+    }
+    public Operaciones() {}
+
+    public Operaciones(String login, String nombre, Date fechaRegistro, String tipoie, String categoria, Float monto,
+                       Date fechaReal, Boolean futuro) {
+        this.login = login;
+        this.nombre = nombre;
+        this.fechaRegistro = fechaRegistro;
+        this.tipoie = tipoie;
+        this.categoria = categoria;
+        this.monto = monto;
+        this.fechaReal = fechaReal;
+        this.futuro = futuro;
     }
 
     public void setIdOperacion(Integer idOperacion) {
@@ -51,11 +70,11 @@ public class Operaciones {
         this.fechaRegistro = fechaRegistro;
     }
 
-    public char getTipoie() {
+    public String getTipoie() {
         return tipoie;
     }
 
-    public void setTipoie(char tipoie) {
+    public void setTipoie(String tipoie) {
         this.tipoie = tipoie;
     }
 

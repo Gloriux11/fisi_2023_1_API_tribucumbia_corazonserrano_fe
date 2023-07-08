@@ -10,28 +10,37 @@ import java.util.Optional;
 
 @Service
 public class PresupuestoService {
-/*
+
     @Autowired
     private PresupuestoRepository presupuestoRepository;
+
+    public PresupuestoService(PresupuestoRepository presupuestoRepository) {
+        this.presupuestoRepository = presupuestoRepository;
+    }
 
     public Presupuesto savePresupuesto(Presupuesto presupuesto) {
         return presupuestoRepository.save(presupuesto);
     }
 
-    public Optional<Presupuesto> getPresupuesto(Integer idPresupuesto) {
-        return presupuestoRepository.findById(idPresupuesto);
+    public Optional<Presupuesto> getPresupuesto(Integer id) {
+        return presupuestoRepository.findById(id);
     }
 
-    public Presupuesto updatePresupuesto(Integer idPresupuesto, Presupuesto presupuesto) {
-        Optional<Presupuesto> existingPresupuesto = presupuestoRepository.findById(idPresupuesto);
+    public Presupuesto updatePresupuesto(Integer id, Presupuesto presupuesto) {
+        Optional<Presupuesto> existingPresupuesto = presupuestoRepository.findById(id);
         if (existingPresupuesto.isPresent()) {
             Presupuesto updatedPresupuesto = existingPresupuesto.get();
             updatedPresupuesto.setLogin(presupuesto.getLogin());
-            updatedPresupuesto.setFecha(presupuesto.getFecha());
+            updatedPresupuesto.setFechaInicio(presupuesto.getFechaInicio());
+            updatedPresupuesto.setFechaFin(presupuesto.getFechaFin());
             updatedPresupuesto.setMonto(presupuesto.getMonto());
             return presupuestoRepository.save(updatedPresupuesto);
         } else {
             throw new PresupuestoNotFoundException();
         }
-    }*/
+    }
+
+    public void deletePresupuesto(Integer id) {
+        presupuestoRepository.deleteById(id);
+    }
 }

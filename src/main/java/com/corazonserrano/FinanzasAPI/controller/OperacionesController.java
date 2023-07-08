@@ -6,22 +6,30 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
+import java.util.List;
 
 @RestController
-@RequestMapping(value = "/operaciones")
+@RequestMapping("/operaciones")
+@CrossOrigin
 public class OperacionesController {
+
     @Autowired
     private OperacionesService operacionesService;
 
-    @GetMapping
-    public ArrayList<Operaciones> obtenerPorOperaciones() {
+    @GetMapping("listado")
+    public List<Operaciones> obtenerPorOperaciones() {
         return operacionesService.obtenerOperaciones();
     }
 
-    @GetMapping(path = "/{tipoie}")
-    public ArrayList<Operaciones> obtenerPorFiltro(@PathVariable("id") String tipoie) {
-        return this.operacionesService.obtenerIngresos(tipoie);
+    public OperacionesController(OperacionesService operacionService) {
+        this.operacionesService = operacionService;
+    }
+
+    @GetMapping("/filtro/{tipoie}")
+    public List<Operaciones> filtrarPorTipoIE(@PathVariable("tipoie") String tipoie) {
+        return operacionesService.obtenerOperacionesPorTipoIE(tipoie);
     }
 
 }
+
 
