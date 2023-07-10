@@ -7,12 +7,12 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
-
 @RestController
 @RequestMapping(value = "/usuario")
 public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
+
 
     @RequestMapping(method = RequestMethod.POST, path = "/save",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
@@ -22,7 +22,8 @@ public class UsuarioController {
 
     @RequestMapping(method = RequestMethod.GET, path = "/getUsuario")
     @ResponseBody
-    public Usuario findByUserId(@RequestParam Integer id) {
-        return usuarioService.findByUserId(id).orElseThrow(UsuarioNotFoundException::new);
+    public Usuario findByUserId(@RequestParam Integer idUsuario) {
+        return usuarioService.findByUserId(idUsuario).orElseThrow(UsuarioNotFoundException::new);
     }
+
 }

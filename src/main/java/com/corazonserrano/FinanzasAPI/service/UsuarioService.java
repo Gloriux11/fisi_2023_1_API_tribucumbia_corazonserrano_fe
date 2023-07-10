@@ -19,8 +19,8 @@ public class UsuarioService {
         return usuarioRepository.save(savedUsuario);
     }
 
-    public Optional<Usuario> findByUserId(Integer id) {
-        Usuario usuario = usuarioRepository.findByUserId(id);
+    public Optional<Usuario> findByUserId(Integer idUsuario) {
+        Usuario usuario = usuarioRepository.findByUserId(idUsuario);
 
         return Optional.ofNullable(usuario);
     }

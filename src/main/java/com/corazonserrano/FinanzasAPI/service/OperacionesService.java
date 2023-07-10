@@ -23,4 +23,5 @@ public class OperacionesService {
     public List<Operaciones> obtenerOperacionesPorTipoIE(String tipoie) {
         return operacionesRepository.findByTipoie(tipoie);
     }
+
 }

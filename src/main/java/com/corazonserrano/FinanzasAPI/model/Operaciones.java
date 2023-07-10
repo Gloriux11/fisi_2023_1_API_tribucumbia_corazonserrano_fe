@@ -1,38 +1,43 @@
 package com.corazonserrano.FinanzasAPI.model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-import jakarta.persistence.Table;
+import jakarta.persistence.*;
 import lombok.Data;
 import java.util.Date;
 
 @Entity
-@Table(name = "operaciones")
+@Table(name = "Operaciones")
 @Data
 public class Operaciones {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+    @Column(name = "idOperacion")
     private Integer idOperacion;
-    private String login;
+    @ManyToOne
+    @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario", foreignKey = @ForeignKey(name = "fk_usuario_id"))
+    private Usuario usuario;
+    @Column(name = "nombre")
     private String nombre;
+    @Column(name = "fechaRegistro")
     private Date fechaRegistro;
+    @Column(name = "tipoie")
     private String tipoie;
+    @Column(name = "categoria")
     private String categoria;
+    @Column(name = "monto")
     private Float monto;
+    @Column(name = "fechaReal")
     private Date fechaReal;
+    @Column(name = "futuro")
     private Boolean futuro;
 
-    public Integer getIdOperacion() {
-        return idOperacion;
-    }
+
     public Operaciones() {}
 
-    public Operaciones(String login, String nombre, Date fechaRegistro, String tipoie, String categoria, Float monto,
+    public Operaciones(Usuario usuario, String nombre, Date fechaRegistro, String tipoie, String categoria, Float monto,
                        Date fechaReal, Boolean futuro) {
-        this.login = login;
+        this.usuario = usuario;
         this.nombre = nombre;
         this.fechaRegistro = fechaRegistro;
         this.tipoie = tipoie;
@@ -42,16 +47,19 @@ public class Operaciones {
         this.futuro = futuro;
     }
 
+    public Integer getIdOperacion() {
+        return idOperacion;
+    }
     public void setIdOperacion(Integer idOperacion) {
         this.idOperacion = idOperacion;
     }
 
-    public String getLogin() {
-        return login;
+    public Usuario getUsuario() {
+        return usuario;
     }
 
-    public void setLogin(String login) {
-        this.login = login;
+    public void setUsuario(Usuario usuario) {
+        this.usuario = usuario;
     }
 
     public String getNombre() {

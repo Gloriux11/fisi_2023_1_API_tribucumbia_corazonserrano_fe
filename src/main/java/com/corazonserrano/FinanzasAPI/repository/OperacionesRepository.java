@@ -11,3 +11,4 @@ public interface OperacionesRepository extends CrudRepository<Operaciones, Integ
     List<Operaciones> findByTipoie(String tipoie);
 
 }
+
