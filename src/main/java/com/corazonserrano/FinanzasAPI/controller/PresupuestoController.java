@@ -26,9 +26,16 @@ public class PresupuestoController {
         return presupuestoService.savePresupuesto(presupuesto);
     }
 
-    @GetMapping("/{idPresupuesto}")
-    public Optional<Presupuesto> obtenerPresupuesto(@PathVariable("idPresupuesto") Integer idPresupuesto) {
-        return presupuestoService.getPresupuesto(idPresupuesto);
+    @GetMapping("/obtener-presupuesto/{idUsuario}")
+    public Presupuesto obtenerPresupuesto(@PathVariable("idUsuario") Integer idUsuario ) {
+        return presupuestoService.getPresupuesto(idUsuario);
+    }
+
+    //V2
+    @RequestMapping(method = RequestMethod.GET, path = "/obtener-presupuesto2")
+    @ResponseBody
+    public Presupuesto obtenerPresupuestoPorID(@RequestParam Integer idUsuario ) {
+        return presupuestoService.getPresupuesto(idUsuario);
     }
 
     @PutMapping("/editar/{id}")
@@ -40,4 +47,5 @@ public class PresupuestoController {
     public void eliminarPresupuesto(@PathVariable("idPresupuesto") Integer idPresupuesto) {
         presupuestoService.deletePresupuesto(idPresupuesto);
     }
+
 }

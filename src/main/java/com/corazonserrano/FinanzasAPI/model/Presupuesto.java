@@ -12,13 +12,13 @@ import java.util.Date;
 public class Presupuesto {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", updatable = false, nullable = false)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "idPresupuesto")
+    private Integer idPresupuesto;
 
-    private Integer id;
-
-    @Column(name = "login")
-    private Integer login;
+    @ManyToOne
+    @JoinColumn(name = "idUsuario", referencedColumnName = "idUsuario", foreignKey = @ForeignKey(name = "fk_usuario_id2"))
+    private Usuario idUsuario;
 
     @Column(name = "fechaInicio")
     private Date fechaInicio;
@@ -33,28 +33,27 @@ public class Presupuesto {
 
     }
 
-    public Presupuesto(Integer id, Integer login, Date fechaInicio, Date fechaFin, Double monto) {
-        this.id = id;
-        this.login = login;
+    public Presupuesto(Usuario login, Date fechaInicio, Date fechaFin, Double monto) {
+        this.idUsuario = login;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.monto = monto;
     }
 
     public Integer getIdPresupuesto() {
-        return id;
+        return idPresupuesto;
     }
 
-    public void setIdPresupuesto(Integer id) {
-        this.id = id;
+    public void setIdPresupuesto(Integer idPresupuesto) {
+        this.idPresupuesto = idPresupuesto;
     }
 
-    public Integer getLogin() {
-        return login;
+    public Usuario getIdUsuario() {
+        return idUsuario;
     }
 
-    public void setLogin(Integer login) {
-        this.login = login;
+    public void setIdUsuario(Usuario login) {
+        this.idUsuario = login;
     }
 
     public Date getFechaInicio() {

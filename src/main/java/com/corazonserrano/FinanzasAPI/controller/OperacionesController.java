@@ -43,6 +43,19 @@ public class OperacionesController {
         String tipoie = "I";
         return operacionesService.obtenerOperacionesPorTipoIEyUsuario(idUsuario, tipoie);
     }
+    //ESTOS DOS SON NUEVOS CON GET
+    @RequestMapping(method = RequestMethod.GET, path = "/listar-ingresos2")
+    @ResponseBody
+    public List<Operaciones> obtenerOperacionesIngresos(@RequestParam Integer idUsuario) {
+        String tipoie = "I";
+        return operacionesService.obtenerOperacionesPorTipoIEyUsuario(idUsuario, tipoie);
+    }
+    @RequestMapping(method = RequestMethod.GET, path = "/listar-egresos2")
+    @ResponseBody
+    public List<Operaciones> obtenerOperacionesEgresos(@RequestParam Integer idUsuario) {
+        String tipoie = "E";
+        return operacionesService.obtenerOperacionesPorTipoIEyUsuario(idUsuario, tipoie);
+    }
 
 
 }

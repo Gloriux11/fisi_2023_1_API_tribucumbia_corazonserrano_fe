@@ -22,15 +22,15 @@ public class PresupuestoService {
         return presupuestoRepository.save(presupuesto);
     }
 
-    public Optional<Presupuesto> getPresupuesto(Integer id) {
-        return presupuestoRepository.findById(id);
+    public Presupuesto getPresupuesto(Integer idUsuario) {
+        return presupuestoRepository.findByIdPresupuestoAndIdUsuario(idUsuario);
     }
 
     public Presupuesto updatePresupuesto(Integer id, Presupuesto presupuesto) {
         Optional<Presupuesto> existingPresupuesto = presupuestoRepository.findById(id);
         if (existingPresupuesto.isPresent()) {
             Presupuesto updatedPresupuesto = existingPresupuesto.get();
-            updatedPresupuesto.setLogin(presupuesto.getLogin());
+            updatedPresupuesto.setIdUsuario(presupuesto.getIdUsuario());
             updatedPresupuesto.setFechaInicio(presupuesto.getFechaInicio());
             updatedPresupuesto.setFechaFin(presupuesto.getFechaFin());
             updatedPresupuesto.setMonto(presupuesto.getMonto());
