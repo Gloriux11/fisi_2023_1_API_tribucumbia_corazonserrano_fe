@@ -4,6 +4,9 @@ package com.corazonserrano.FinanzasAPI.model;
 import jakarta.persistence.*;
 import lombok.Data;
 
+import java.util.ArrayList;
+import java.util.List;
+
 @Entity
 @Table(name = "usuario")
 @Data
@@ -19,11 +22,12 @@ public class Usuario {
     @Column(name = "password")
     private String password;
 
+    @OneToMany(mappedBy = "usuario")
+    private List<Presupuesto> presupuestoList = new ArrayList<>();
 
     public Usuario() {
 
     }
-
 
     public Usuario(Integer idUsuario, String userName, String password) {
         this.idUsuario = idUsuario;
