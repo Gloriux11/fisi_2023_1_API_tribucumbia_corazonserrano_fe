@@ -1,5 +1,5 @@
 package com.corazonserrano.FinanzasAPI.model;
-
+/*
 import jakarta.persistence.*;
 import lombok.Data;
 
@@ -25,3 +25,4 @@ public class Recomendaciones {
     @Column(name = "recomendacionDescripcion")
     private String recomendacionDescripcion;
 }
+*/

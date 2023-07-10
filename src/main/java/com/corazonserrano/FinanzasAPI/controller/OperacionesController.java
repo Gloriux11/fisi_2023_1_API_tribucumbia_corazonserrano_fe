@@ -1,15 +1,14 @@
 package com.corazonserrano.FinanzasAPI.controller;
 
+import com.corazonserrano.FinanzasAPI.exception.UsuarioNotFoundException;
 import com.corazonserrano.FinanzasAPI.model.Operaciones;
+import com.corazonserrano.FinanzasAPI.model.Usuario;
 import com.corazonserrano.FinanzasAPI.service.OperacionesService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -33,6 +32,18 @@ public class OperacionesController {
     public List<Operaciones> filtrarPorTipoIE(@PathVariable("tipoie") String tipoie) {
         return operacionesService.obtenerOperacionesPorTipoIE(tipoie);
     }
+    @GetMapping("/listar-egresos/{idUsuario}")
+    public List<Operaciones> obtenerOperacionesPorTipoIEyUsuario(@PathVariable("idUsuario") Integer idUsuario) {
+        String tipoie = "E";
+        return operacionesService.obtenerOperacionesPorTipoIEyUsuario(idUsuario, tipoie);
+    }
+
+    @GetMapping("/listar-ingresos/{idUsuario}")
+    public List<Operaciones> obtenerOperacionesPorTipoIyUsuario(@PathVariable("idUsuario") Integer idUsuario) {
+        String tipoie = "I";
+        return operacionesService.obtenerOperacionesPorTipoIEyUsuario(idUsuario, tipoie);
+    }
+
 
 }
 

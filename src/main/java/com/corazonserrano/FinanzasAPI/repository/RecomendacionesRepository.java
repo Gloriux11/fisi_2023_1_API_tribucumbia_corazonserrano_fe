@@ -1,5 +1,5 @@
 package com.corazonserrano.FinanzasAPI.repository;
-
+/*
 import com.corazonserrano.FinanzasAPI.model.Recomendaciones;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.CrudRepository;
@@ -13,3 +13,4 @@ public interface RecomendacionesRepository extends CrudRepository<Recomendacione
             ")")
     Recomendaciones findByidPresupuestoAndnumRecomendacion(Integer idPresupuesto, Integer numRecomendacion);
 }
+*/

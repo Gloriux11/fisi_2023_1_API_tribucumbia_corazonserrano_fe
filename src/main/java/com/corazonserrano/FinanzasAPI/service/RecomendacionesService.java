@@ -1,5 +1,5 @@
 package com.corazonserrano.FinanzasAPI.service;
-
+/*
 import com.corazonserrano.FinanzasAPI.model.Recomendaciones;
 import com.corazonserrano.FinanzasAPI.repository.RecomendacionesRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -14,3 +14,4 @@ public class RecomendacionesService {
         return recomendacion;
     }
 }
+*/
