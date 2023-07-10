@@ -30,7 +30,6 @@ public class PresupuestoService {
         Optional<Presupuesto> existingPresupuesto = presupuestoRepository.findById(id);
         if (existingPresupuesto.isPresent()) {
             Presupuesto updatedPresupuesto = existingPresupuesto.get();
-            updatedPresupuesto.setLogin(presupuesto.getLogin());
             updatedPresupuesto.setFechaInicio(presupuesto.getFechaInicio());
             updatedPresupuesto.setFechaFin(presupuesto.getFechaFin());
             updatedPresupuesto.setMonto(presupuesto.getMonto());

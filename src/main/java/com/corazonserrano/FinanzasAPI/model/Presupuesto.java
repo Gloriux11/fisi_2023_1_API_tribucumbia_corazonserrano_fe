@@ -17,9 +17,6 @@ public class Presupuesto {
 
     private Integer id;
 
-    @Column(name = "login")
-    private Integer login;
-
     @Column(name = "fechaInicio")
     private Date fechaInicio;
 
@@ -29,13 +26,16 @@ public class Presupuesto {
     @Column(name = "monto")
     private Double monto;
 
+    @ManyToOne
+    @JoinColumn(name="login")
+    private Usuario usuario;
+
     public Presupuesto() {
 
     }
 
-    public Presupuesto(Integer id, Integer login, Date fechaInicio, Date fechaFin, Double monto) {
+    public Presupuesto(Integer id, Date fechaInicio, Date fechaFin, Double monto) {
         this.id = id;
-        this.login = login;
         this.fechaInicio = fechaInicio;
         this.fechaFin = fechaFin;
         this.monto = monto;
@@ -49,15 +49,7 @@ public class Presupuesto {
         this.id = id;
     }
 
-    public Integer getLogin() {
-        return login;
-    }
-
-    public void setLogin(Integer login) {
-        this.login = login;
-    }
-
-    public Date getFechaInicio() {
+        public Date getFechaInicio() {
         return fechaInicio;
     }
 
