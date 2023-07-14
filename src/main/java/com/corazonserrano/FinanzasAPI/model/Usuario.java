@@ -21,9 +21,9 @@ public class Usuario {
 
     @Column(name = "password")
     private String password;
-
+/*
     @OneToMany(mappedBy = "usuario")
-    private List<Presupuesto> presupuestoList = new ArrayList<>();
+    private List<Presupuesto> presupuestoList = new ArrayList<>();*/
 
     public Usuario() {
 

@@ -11,7 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping("/presupuesto")
+@RequestMapping("/ux-presupuesto/appww/servicio-al-cliente/v1")
 public class PresupuestoController {
 
     @Autowired
@@ -26,13 +26,13 @@ public class PresupuestoController {
         return presupuestoService.savePresupuesto(presupuesto);
     }
 
-    @GetMapping("/obtener-presupuesto/{idUsuario}")
+    @GetMapping("/obtenerpresupuesto/{idUsuario}")
     public Presupuesto obtenerPresupuesto(@PathVariable("idUsuario") Integer idUsuario ) {
         return presupuestoService.getPresupuesto(idUsuario);
     }
 
     //V2
-    @RequestMapping(method = RequestMethod.GET, path = "/obtener-presupuesto2")
+    @RequestMapping(method = RequestMethod.GET, path = "/obtener-presupuesto")
     @ResponseBody
     public Presupuesto obtenerPresupuestoPorID(@RequestParam Integer idUsuario ) {
         return presupuestoService.getPresupuesto(idUsuario);

@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @RestController
-@RequestMapping("/operaciones")
+@RequestMapping("/ux-operaciones/appww/servicio-al-cliente/v1")
 @CrossOrigin
 public class OperacionesController {
 
@@ -32,25 +32,25 @@ public class OperacionesController {
     public List<Operaciones> filtrarPorTipoIE(@PathVariable("tipoie") String tipoie) {
         return operacionesService.obtenerOperacionesPorTipoIE(tipoie);
     }
-    @GetMapping("/listar-egresos/{idUsuario}")
+    @GetMapping("/listaregresos/{idUsuario}")
     public List<Operaciones> obtenerOperacionesPorTipoIEyUsuario(@PathVariable("idUsuario") Integer idUsuario) {
         String tipoie = "E";
         return operacionesService.obtenerOperacionesPorTipoIEyUsuario(idUsuario, tipoie);
     }
 
-    @GetMapping("/listar-ingresos/{idUsuario}")
+    @GetMapping("/listaringresos/{idUsuario}")
     public List<Operaciones> obtenerOperacionesPorTipoIyUsuario(@PathVariable("idUsuario") Integer idUsuario) {
         String tipoie = "I";
         return operacionesService.obtenerOperacionesPorTipoIEyUsuario(idUsuario, tipoie);
     }
     //ESTOS DOS SON NUEVOS CON GET
-    @RequestMapping(method = RequestMethod.GET, path = "/listar-ingresos2")
+    @RequestMapping(method = RequestMethod.GET, path = "/listar-ingresos")
     @ResponseBody
     public List<Operaciones> obtenerOperacionesIngresos(@RequestParam Integer idUsuario) {
         String tipoie = "I";
         return operacionesService.obtenerOperacionesPorTipoIEyUsuario(idUsuario, tipoie);
     }
-    @RequestMapping(method = RequestMethod.GET, path = "/listar-egresos2")
+    @RequestMapping(method = RequestMethod.GET, path = "/listar-gastos")
     @ResponseBody
     public List<Operaciones> obtenerOperacionesEgresos(@RequestParam Integer idUsuario) {
         String tipoie = "E";

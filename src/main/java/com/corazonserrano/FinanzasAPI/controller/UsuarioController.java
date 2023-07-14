@@ -8,19 +8,19 @@ import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.*;
 
 @RestController
-@RequestMapping(value = "/usuario")
+@RequestMapping(value = "/ux-gestion-usuarios/appww/servicio-al-cliente/v1")
 public class UsuarioController {
     @Autowired
     private UsuarioService usuarioService;
 
 
-    @RequestMapping(method = RequestMethod.POST, path = "/save",produces = MediaType.APPLICATION_JSON_VALUE)
+    @RequestMapping(method = RequestMethod.POST, path = "/registrar-usuarios",produces = MediaType.APPLICATION_JSON_VALUE)
     @ResponseBody
     public Usuario saveUsuario(@RequestBody Usuario usuario) {
         return usuarioService.saveUsuario(usuario);
     }
 
-    @RequestMapping(method = RequestMethod.GET, path = "/getUsuario")
+    @RequestMapping(method = RequestMethod.GET, path = "/obtener-datos-usuario")
     @ResponseBody
     public Usuario findByUserId(@RequestParam Integer idUsuario) {
         return usuarioService.findByUserId(idUsuario).orElseThrow(UsuarioNotFoundException::new);
