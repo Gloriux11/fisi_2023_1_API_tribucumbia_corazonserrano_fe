@@ -21,11 +21,6 @@ public class PresupuestoController {
         this.presupuestoService = presupuestoService;
     }
 
-    @PostMapping("/nuevo")
-    public Presupuesto crearPresupuesto(@RequestBody Presupuesto presupuesto) {
-        return presupuestoService.savePresupuesto(presupuesto);
-    }
-
     @GetMapping("/obtenerpresupuesto/{idUsuario}")
     public Presupuesto obtenerPresupuesto(@PathVariable("idUsuario") Integer idUsuario ) {
         return presupuestoService.getPresupuesto(idUsuario);
